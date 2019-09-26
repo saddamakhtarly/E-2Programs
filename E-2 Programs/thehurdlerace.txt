@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TheHurdlerace
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Number of hurdles");
+            int hurdles = 0;
+            hurdles = int.Parse(Console.ReadLine());
+            int[] hrdarray = new int[hurdles];
+            Console.WriteLine("Unit height Dan can jump:");
+            int dan = 0;
+            dan = int.Parse(Console.ReadLine());
+            for (int i = 0; i < hurdles; i++)
+            {
+                Console.WriteLine("Enter the heigt of hurdle for index"+i);
+                hrdarray[i] = int.Parse(Console.ReadLine());
+            }
+            int temp = 0;
+            for (int i = 0; i < hurdles; i++)
+            {
+                for (int j = i + 1; j < hurdles; j++)
+                {
+                    if (hrdarray[i]<hrdarray[j])
+                    {
+                        temp = hrdarray[i];
+                        hrdarray[i] = hrdarray[j];
+                        hrdarray[j] = temp;
+                    }
+                }
+            }
+            
+            if (hrdarray[0]>dan)
+            {
+                Console.WriteLine("The does of potion DAN must take to jump all the hurdles are :"+(hrdarray[0]-dan));
+            }
+            if (hrdarray[0] <= dan)
+            {
+                Console.WriteLine("Dan Can easily jump all the hurdles");
+            }
+            Console.WriteLine();
+
+
+            Console.ReadKey();
+        }
+    }
+}
